@@ -11,6 +11,8 @@ import LiveResults from './pages/admin/LiveResults';
 import VoterVerification from './pages/voter/Verification';
 import VotingBooth from './pages/voter/VotingBooth';
 import Confirmation from './pages/voter/Confirmation';
+import { FaceDetection } from 'face-api.js';
+import FaceRecognitionPage from './pages/voter/FaceRecognitionPage';
 
 function App() {
   return (
@@ -29,9 +31,10 @@ function App() {
           
           {/* Voter routes */}
           <Route path="/voter" element={<ProtectedRoute role="voter" />}>
-            <Route path="verify" element={<VoterVerification />} />
+            {/* <Route path="verify" element={<VoterVerification />} /> */}
             <Route path="vote" element={<VotingBooth />} />
             <Route path="confirmation" element={<Confirmation />} />
+            <Route path="verify" element={<FaceRecognitionPage />} />
           </Route>
           
           <Route path="*" element={<Navigate to="/" />} />
